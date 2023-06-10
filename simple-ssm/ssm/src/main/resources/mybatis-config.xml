@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入外部配置文件resources目录下-->
+    <!--在父工程的pom.xml文件中需要配置信息-->
+    <!--<properties resource="jdbc.properties"/>-->
+    <!--配置日志信息-->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--配置别名-->
+    <typeAliases>
+        <!--<typeAlias type="com.lkpackage.entity" alias="lkpackage.entity.Monster"/>-->
+        <package name="com.lkpackage.furn.bean"/>
+    </typeAliases>
+
+    <!--配置分页拦截器-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--如果用户请求的页数越界,则默认显示首页和尾页-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+</configuration>
